@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 
+import showNotification from "./utils/notification";
+import playBeep from "./utils/playAudio";
+
 function App() {
-  const DEFAULT_TIME = 25 * 60;
+  const DEFAULT_TIME =  25 * 60;
 
   const [defaultDuration, setDefaultDuration] = useState(() => {
     const stored = localStorage.getItem("defaultDuration");
@@ -17,7 +20,10 @@ function App() {
   const [timeLeft, setTimeLeft] = useState(defaultDuration);
   const [isRunning, setIsRunning] = useState(false);
 
-  const toggleStart = () => setIsRunning((prev) => !prev);
+  const toggleStart = () =>  {
+    if(Notification.permission !== 'granted') Notification.requestPermission();
+    setIsRunning((prev) => !prev);
+  }
 
   const resetTimer = () => {
     setIsRunning(false);
@@ -51,6 +57,8 @@ function App() {
         return newCount;
       });
       setIsRunning(false);
+      playBeep();
+      showNotification();
     }
 
     return () => clearInterval(intervalId);
