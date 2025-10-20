@@ -87,9 +87,9 @@ function App() {
     <div className="max-w-xl mx-auto p-6 text-center bg-gray-800 rounded-lg shadow-lg">
       <h1 className="text-4xl font-extrabold mb-6">Pomodoro Timer</h1>
 
-      <div className="text-lg font-semibold mb-4">
+      <div className="text-2xl font-bold mb-4">
         Mode:{" "}
-        <span className={isBreak ? "text-blue-400" : "text-yellow-400"}>
+        <span className={isBreak ? "text-green-400" : "text-red-500"}>
           {isBreak ? "Break" : "Work"}
         </span>
       </div>
@@ -100,7 +100,7 @@ function App() {
         </div>
         <button
           onClick={resetSessionCount}
-          className="bg-red-600 hover:bg-red-700 text-white px-3 py-1 mx-5 rounded transition"
+          className="bg-gray-600 hover:bg-gray-700 text-white px-3 py-1 mx-5 rounded transition"
         >
           Reset Session Count
         </button>
@@ -160,7 +160,10 @@ function App() {
         </div>
       </div>
 
-      <div className="mb-8 text-yellow-400 text-7xl font-mono font-bold select-none">
+      <div className={`mb-8 text-7xl font-mono font-bold select-none ${
+          isBreak ? "text-green-500" : "text-red-500"
+        }`}
+      >
         {formatTime(timeLeft)}
       </div>
 
