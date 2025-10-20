@@ -13,7 +13,7 @@ const playBeep = () => {
 
   // Start and stop sound
   oscillator.start();
-  oscillator.stop(ctx.currentTime + 0.5); // Play for 0.2 seconds
+  oscillator.stop(ctx.currentTime + 0.5); // Play for 0.5 seconds
 };
 
 export default playBeep;

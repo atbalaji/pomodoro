@@ -1,8 +1,8 @@
 
-const showNotification = () => {
+const showNotification = (msg) => {
   if(Notification.permission === 'granted') {
     new Notification("Pomodoro complete!", {
-      body: "Take a short break."
+      body: msg
     });
   }
 };
