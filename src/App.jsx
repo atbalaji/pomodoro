@@ -122,7 +122,7 @@ function App() {
               const newMinutes = parseInt(e.target.value, 10);
               if (!isNaN(newMinutes)) {
                 const newDuration = newMinutes * 60;
-                setdefaultDuration(newDuration);
+                setDefaultDuration(newDuration);
                 if (!isBreak) {
                   setTimeLeft(newDuration);
                 }
